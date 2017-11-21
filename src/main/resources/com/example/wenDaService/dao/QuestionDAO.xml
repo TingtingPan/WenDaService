@@ -11,6 +11,7 @@
         FROM
         <include refid="table"/>
 
+--         在xml中定义的SQL可以做一些简单的逻辑操作
         <if test="userId != 0">
             WHERE user_id = #{userId}
         </if>
@@ -18,3 +19,9 @@
         LIMIT #{offset},#{limit}
     </select>  
 </mapper>
+
+<!--注意-->
+<!--1、resource下面要建一样的包，是个package，包名要相同-->
+<!--2、namespace要对应好-->
+<!--3、id要和对应的接口名称相同-->
+<!--4、上述有三个变量：userId、offset、limit-->

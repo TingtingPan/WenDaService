@@ -11,6 +11,8 @@
         <!-- Sets the number of seconds the driver will wait for a response from the database -->
         <setting name="defaultStatementTimeout" value="3000"/>
 
+        <!--数据库字段到java对象属性名称的一个自动转换-->
+        <!--举例：head_url->headUrl-->
         <!-- Enables automatic mapping from classic database column names A_COLUMN to camel case classic Java property names aColumn -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
 
@@ -26,4 +28,5 @@
 
     <!-- Continue going here -->
 
+    <!--可以从官网参考相关的配置文件-->
 </configuration>
