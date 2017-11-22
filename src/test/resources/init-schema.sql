@@ -7,7 +7,8 @@ CREATE TABLE `question` (
   `created_date` DATETIME NOT NULL,
   `comment_count` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `date_index` (`created_date` ASC));
+  INDEX `date_index` (`created_date` ASC)
+)ENGINE =InnoDB DEFAULT CHARSET =utf8;
 
   DROP TABLE IF EXISTS `user`;
   CREATE TABLE `user` (

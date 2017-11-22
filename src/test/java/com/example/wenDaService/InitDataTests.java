@@ -60,15 +60,13 @@ public class InitDataTests {
 			date.setTime(date.getTime()+1000*3600*i);
 			question.setUserId(i+1);
 			question.setCreateDate(date);
-			question.setContent("sffeajshdsdf");
-			question.setTitle("ptt");
+			question.setContent("1.Met Opera的官网首先是需要注册，但是我在美国并没有固定手机号，前几次去美国都是临时在某宝买的两个月的号（用完就扔那种），但是我担心如果我在提前买票的时候（尤其是注册时）如果需要手机短信确认一类就很不好办了，尽管官网也支持把国家选为China，但是这样就不能选省份了，另外我也不知道他们是把票寄到特定地址还是什么其他方式，所以我很担心这些事出差错。再者我也不知道Met Opera支持哪些支付方式\n" +
+					"【更新：支付的问题我已经搞定啦！蟹蟹大家帮忙】");
 
+			question.setTitle("在纽约大都会歌剧院观看歌剧需要做哪些准备工作？");
 			//将问题添加到数据库
 			questionDAO.addQuestion(question);
 		}
-
-
-
 	}
 
 	@Test
