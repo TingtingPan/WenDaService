@@ -1,5 +1,6 @@
 package com.example.wenDaService.controller;
 
+import com.example.wenDaService.model.HostHolder;
 import com.example.wenDaService.model.Question;
 import com.example.wenDaService.model.ViewObject;
 import com.example.wenDaService.service.QuestionService;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,6 +32,9 @@ public class HomeController {
 
     @Autowired
     QuestionService questionService;
+
+    @Autowired
+    HostHolder hostHolder;
 
     @RequestMapping(path = {"/hello"},method = RequestMethod.GET)
     @ResponseBody

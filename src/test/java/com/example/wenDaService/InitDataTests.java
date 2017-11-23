@@ -75,9 +75,9 @@ public class InitDataTests {
 		List<User> users = userDao.selectAllUser();
 		System.out.println("数据库中一共有"+users.size()+"条数据");
 		//		List<Question>
-		Assert.assertEquals("xxx",userDao.selectByid(1).getPassword());
+		Assert.assertEquals("xxx",userDao.selectById(1).getPassword());
 		userDao.deleteById(1);
-		Assert.assertNull(userDao.selectByid(1));
+		Assert.assertNull(userDao.selectById(1));
 
 	}
 

@@ -1,4 +1,4 @@
-<#--<#setting datetime_format="yyyy-MM-dd HH:mm:ss">-->
+<#setting datetime_format="yyyy-MM-dd HH:mm:ss">
 <#include "header.ftl">
 <div class="zg-wrap zu-main clearfix " role="main">
     <div class="zu-main-content">
@@ -38,7 +38,7 @@
                                         <#if vo.question.createdDate??>
                                         <div class="zm-item-answer-author-info">
                                             <a class="author-link" data-tip="p$b$amuro1230" target="_blank" href="/user/${vo.user.id}">${vo.user.name}</a>
-                                            ，${vo.question.createdDate?string("yyyy-MM-dd HH:mm:ss zzzz")}
+                                            ，${vo.question.createdDate?datetime}
                                         </div>
                                         <#else >
                                             <div class="zm-item-answer-author-info">

@@ -1,5 +1,7 @@
 package com.example.wenDaService.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -9,6 +11,8 @@ public class Question {
     private int id;
     private String title;
     private String content;
+//    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdDate;
     private int userId;
     private int commentCount;
