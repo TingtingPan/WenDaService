@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -36,31 +38,35 @@ public class HomeController {
     @Autowired
     HostHolder hostHolder;
 
-    @RequestMapping(path = {"/hello"},method = RequestMethod.GET)
+
+    @RequestMapping(path = {"/hello"}, method = RequestMethod.GET)
     @ResponseBody
-    public String sayHello(){
+    public String sayHello() {
         return "hello";
     }
 
 
-    @RequestMapping(path = {"/","/index"})
-    public String index(Model model){
-        model.addAttribute("vos",getQuestions(0,0,10));
-        return "index";
-    }
-    @RequestMapping(path = {"/user/{userId}"},method = RequestMethod.GET)
-    public String userIndex(Model model, @PathVariable("userId") int userId){
-        model.addAttribute("vos",getQuestions(userId,0,10));
+    @RequestMapping(path = {"/", "/index"})
+    public String index(Model model,
+                        HttpServletResponse response) {
+        model.addAttribute("vos", getQuestions(0, 0, 10));
+
         return "index";
     }
 
-    private List<ViewObject> getQuestions(int userId,int offset,int limit){
-        List<Question> questions= questionService.getLatestQuestions(userId,offset,limit);
+    @RequestMapping(path = {"/user/{userId}"}, method = RequestMethod.GET)
+    public String userIndex(Model model, @PathVariable("userId") int userId) {
+        model.addAttribute("vos", getQuestions(userId, 0, 10));
+        return "index";
+    }
+
+    private List<ViewObject> getQuestions(int userId, int offset, int limit) {
+        List<Question> questions = questionService.getLatestQuestions(userId, offset, limit);
         List<ViewObject> vos = new ArrayList<>();
-        for (Question question:questions){
+        for (Question question : questions) {
             ViewObject vo = new ViewObject();
-            vo.set("question",question);
-            vo.set("user",userService.getUser(question.getUserId()));
+            vo.set("question", question);
+            vo.set("user", userService.getUser(question.getUserId()));
             vos.add(vo);
         }
         return vos;

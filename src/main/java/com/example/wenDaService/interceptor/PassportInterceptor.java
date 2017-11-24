@@ -42,8 +42,7 @@ public class PassportInterceptor implements HandlerInterceptor {
                 //验证ticket是否是有效的
                 LoginTicket loginTicket = loginTicketDAO.selectByTicket(ticket);
                 if (loginTicket == null || loginTicket.getExpired().before(new Date())||loginTicket.getStatus()!=0) {
-                    //ticket是无效的,返回true、那么这个请求就不会继续执行下去了。
-                    //todo::
+                    //ticket是无效的,返回true、交给controller处理
                     return true;
                 } else {
                     //将 用户信息取出来并通过合适的方式保存、使得controller中的其他链路都可以访问到这个user。
@@ -53,7 +52,6 @@ public class PassportInterceptor implements HandlerInterceptor {
                 }
             }
         }
-        //未登录状态
         return true;
     }
 

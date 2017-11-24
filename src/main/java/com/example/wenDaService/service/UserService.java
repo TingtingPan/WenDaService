@@ -109,6 +109,9 @@ public class UserService {
         return map;
     }
 
+    public void logout(String ticket) {
+      loginTicketDAO.updateStatus(ticket,1);
+    }
     //在数据库中增加一个ticket。
     public String addLoginTicket(int userId){
         LoginTicket loginTicket = new LoginTicket();
