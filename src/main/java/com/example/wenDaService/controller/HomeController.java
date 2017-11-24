@@ -36,7 +36,7 @@ public class HomeController {
     QuestionService questionService;
 
     @Autowired
-    HostHolder hostHolder;
+    HostHolder    hostHolder;
 
 
     @RequestMapping(path = {"/hello"}, method = RequestMethod.GET)
