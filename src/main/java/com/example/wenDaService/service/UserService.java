@@ -27,6 +27,9 @@ public class UserService {
         return userDAO.selectById(id);
     }
 
+    public User selectByName(String name){
+        return userDAO.selectByName(name);
+    }
     /**
      * 注册要注意的点：
      * 1、长度、敏感词、重复、特殊字符

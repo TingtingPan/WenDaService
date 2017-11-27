@@ -8,7 +8,7 @@
         <#list messages as message>
             <li id="msg-item-4009580">
                 <a class="list-head">
-                    <img alt="头像" src="${message.headUrl}">
+                    <img alt="头像" src="${message.user.headUrl}">
                 </a>
                 <div class="tooltip fade right in">
                     <div class="tooltip-arrow"></div>

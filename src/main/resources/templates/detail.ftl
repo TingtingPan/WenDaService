@@ -98,21 +98,23 @@
                                 <i class="icon vote-arrow"></i>
                                 <span class="label sr-only">反对，不会显示你的姓名</span></button>
                         </div>
+                        <#if comment.user??>
                         <div class="answer-head">
                             <div class="zm-item-answer-author-info">
                                 <a class="zm-item-link-avatar avatar-link" href="" target="_blank"
                                    data-tip="p$t$yingxiaodao">
-                                    <img src="${comment.user.headUrl}"
+                                    <img src="${comment.user.headUrl!}"
                                          class="zm-list-avatar avatar"></a>
                                 <a class="author-link" target="_blank"
-                                   href="/user/${comment.user.id}">${comment.user.name}</a>
+                                   href="/user/${comment.user.id!}">${comment.user.name!}</a>
                             </div>
-                            <div class="zm-item-vote-info" data-votecount="28" data-za-module="VoteInfo">
+                        </#if>
+                        <div class="zm-item-vote-info" data-votecount="28" data-za-module="VoteInfo">
                                 <span class="voters text">
                                     <a href="" class="more text">
                                         <span class="js-voteCount">28</span>&nbsp;人赞同</a></span>
-                            </div>
                         </div>
+                    </div>
                         <div class="zm-item-rich-text expandable js-collapse-body" data-resourceid="6727688"
                              data-action="/answer/content" data-author-name="营销岛"
                              data-entry-url="/question/36301524/answer/66862039">

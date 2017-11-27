@@ -9,11 +9,10 @@
                 </a>
                 <div class="letter-info">
                     <#--<span class="l-time">$date.format('yyyy-MM-dd HH:mm:ss', $conversation.conversation.createdDate)</span>-->
-                        <#if conversation.conversation.createdDate??>
-                            <span class="l-time">${conversation.conversation.createdDate?string("yyyy-MM-dd HH:mm:ss")}</span>
+                        <#if conversation.message.createdDate??>
+                            <span class="l-time">${conversation.message.createdDate?string("yyyy-MM-dd HH:mm:ss")}</span>
                         <#else >
                             <span class="l-time">2017-11-24 21:02</span>
-
                         </#if>
 
                         <div class="l-operate-bar">
@@ -22,14 +21,15 @@
                     删除
                     </a>
                     -->
-                        <a href="/msg/detail?conversationId=${conversation.conversation.conversationId}">
-                            ${conversation.conversation.id}
+                        <a href="/msg/detail?conversationId=${conversation.message.conversationId}">
+                            共${conversation.total!"0"}条会话
                         </a>
                     </div>
                 </div>
                 <div class="chat-headbox">
                 <span class="msg-num">
-                $conversation.unread
+                <#--$conversation.unread-->
+                    ${conversation.unread!"0"}
                 </span>
                     <a class="list-head">
                         <img alt="头像" src="${conversation.user.headUrl}">
@@ -40,15 +40,14 @@
                         ${conversation.user.name}
                     </a>
                     <p class="letter-brief">
-                        <a href="/msg/detail?conversationId=${conversation.conversation.conversationId}">
-                            ${conversation.conversation.content}
+                        <a href="/msg/detail?conversationId=${conversation.message.conversationId}">
+                            ${conversation.message.content}
                         </a>
                     </p>
                 </div>
             </li>
         </#list>
         </ul>
-
     </div>
 </div>
 <#include "header.ftl">
