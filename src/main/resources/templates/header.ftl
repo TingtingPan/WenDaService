@@ -5,7 +5,6 @@
       style="">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script async="" src="../scripts/ga.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-ZA-Response-Id" content="46acde5c53db46f2806ccad726de9826">
@@ -16,7 +15,7 @@
     <meta id="znonce" name="znonce" content="d3edc464cf014708819feffde7ddd01e">
     <link rel="search" type="application/opensearchdescription+xml" href="https://nowcoder.com/static/search.xml"
           title="牛客">
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
     <style>
         .zm-item-answer-author-info a.collapse {
             margin-top: 0
@@ -59,7 +58,7 @@
                     </a>
                 </li>
             </ul>
-        <#else>
+        <#else >
             <ul class="topnav-noauth clearfix">
                 <li>
                     <a href="/reglogin">注册/登陆</a>
@@ -67,7 +66,9 @@
             </ul>
         </#if>
         </div>
-        <button class="zu-top-add-question" id="zu-top-add-question">提问</button>
+        <#if user??>
+           <button class="zu-top-add-question" id="zu-top-add-question">提问</button>
+        </#if>
         <div role="search" id="zh-top-search" class="zu-top-search">
             <form method="GET" action="https://nowcoder.com/search" id="zh-top-search-form" class="zu-top-search-form">
                 <input type="hidden" name="type" value="content">
@@ -82,18 +83,20 @@
         <div id="zg-top-nav" class="zu-top-nav">
             <ul class="zu-top-nav-ul zg-clear">
                 <li class="zu-top-nav-li current" id="zh-top-nav-home">
-                    <a class="zu-top-nav-link" href="https://nowcoder.com/" id="zh-top-link-home" data-za-c="view_home"
+                    <a class="zu-top-nav-link" href="/" id="zh-top-link-home" data-za-c="view_home"
                        data-za-a="visit_home" data-za-l="top_navigation_home">首页</a>
                 </li>
                 <li class="zu-top-nav-li " id="zh-top-nav-explore">
-                    <a class="zu-top-nav-link" href="https://nowcoder.com/explore">发现</a>
+                    <a class="zu-top-nav-link" href="/">发现</a>
                 </li>
+                <#if user??>
                 <li class="top-nav-noti zu-top-nav-li ">
-                    <a class="zu-top-nav-link" href="javascript:;" id="zh-top-nav-count-wrap" role="button"><span
+                    <a class="zu-top-nav-link" href="#" id="zh-top-nav-count-wrap" role="button"><span
                             class="mobi-arrow"></span>消息<span id="zh-top-nav-count"
                                                               class="zu-top-nav-count zg-noti-number"
                                                               style="display: none;">0</span></a>
                 </li>
+                </#if>
             </ul>
             <div class="zu-top-nav-live zu-noti7-popup zg-r5px no-hovercard" id="zh-top-nav-live-new" role="popup"
                  tabindex="0">
@@ -179,7 +182,8 @@
                     </div>
                     <div class="zm-noti7-frame-border bottom"></div>
                     <div class="zm-noti7-popup-footer">
-                        <a href="https://nowcoder.com/notifications" class="zm-noti7-popup-footer-all zg-right">查看全部»</a>
+                        <a href="https://nowcoder.com/notifications" class="zm-noti7-popup-footer-all zg-right">查看全部
+                            »</a>
                         <a href="https://nowcoder.com/settings/notification" class="zm-noti7-popup-footer-set"
                            title="通知设置"><i class="zg-icon zg-icon-settings"></i></a>
                     </div>
