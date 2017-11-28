@@ -2,6 +2,7 @@ package com.example.wenDaService.controller;
 
 import com.example.wenDaService.model.*;
 import com.example.wenDaService.service.CommentService;
+import com.example.wenDaService.service.LikeService;
 import com.example.wenDaService.service.QuestionService;
 import com.example.wenDaService.service.UserService;
 import com.example.wenDaService.util.WendaUtil;
@@ -29,6 +30,9 @@ public class QuestionController {
 
     @Autowired
     HostHolder hostHolder;
+
+    @Autowired
+    LikeService likeService;
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(QuestionController.class);
 
@@ -68,6 +72,14 @@ public class QuestionController {
                 commentList) {
             ViewObject vo = new ViewObject();
             vo.set("comment",comment);
+            if (hostHolder.getUser()==null){
+                vo.set("liked",0);
+            } else{
+                vo.set("liked",likeService.getLikeStatus(hostHolder.getUser().getId(),EntityType.ENTITY_COMMNET,comment.getId()));
+            }
+
+            vo.set("likeCount",likeService.getLikeCount(EntityType.ENTITY_COMMNET,comment.getId()));
+
             vo.set("user",userService.getUser(comment.getUserId()));
             comments.add(vo);
         }
